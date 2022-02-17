@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { actionCreators as userActions } from '../../../redux/modules/user';
+import { deleteCookie } from "../../../utils/cookie";
 
 
 import Navbar from 'react-bootstrap/Navbar';
@@ -13,8 +14,13 @@ function NavBar() {
   const user = useSelector((state) => state.user.user);
 
   const logOut = () => {
+    deleteCookie("user");
     dispatch(userActions.logOut());
   };
+
+  useEffect(() => {
+    console.log("user 상태 변경", user);
+  }, []);
 
   return (
     <Navbar bg="light" variant="light">

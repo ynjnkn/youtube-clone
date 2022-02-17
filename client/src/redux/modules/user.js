@@ -52,13 +52,12 @@ export default handleActions(
             produce(state, (draft) => {
                 const token = action.payload.user
                 const decoded = jwt_decode(token);
+                console.log("decoded", decoded);
                 draft.user = decoded;
             }),
         [LOG_OUT]: (state, action) =>
             produce(state, (draft) => {
-                deleteCookie("user");
                 draft.user = null;
-                window.location.href = "/";
             }),
         // [GET_USER]: (state, action) => produce(state, (draft) => { }),
     },

@@ -18,5 +18,8 @@ export const setCookie = (name, value, exp = 24) => {
 export const deleteCookie = (name) => {
     const date = new Date("2020-01-01").toUTCString();
 
-    document.cookie = name + "=; expires=" + date;
+    // document.cookie = name + "=; expires=" + date;
+    // document.cookie = `${name}; path=/; expires=' + ${date}`;
+    document.cookie = name + "=; expires=" + date + '; path = /;';
+    console.log("deleteCookie 실행");
 };

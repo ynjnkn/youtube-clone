@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { Row, Col, List, Avatar } from 'antd';
 
 import SideVideo from './Sections/SideVideo';
+import Subscribe from './Sections/Subscribe';
 
 
 function VideoDetailPage() {
@@ -40,7 +41,7 @@ function VideoDetailPage() {
                             src={`http://localhost:5000/${videoDetail.filePath}`}
                             controls />
                         <List.Item
-                            actions
+                            actions={[<Subscribe userTo={videoDetail.writer._id} />]}
                         >
                             <List.Item.Meta
                                 avatar={<Avatar src={'https://www.pngfind.com/pngs/m/679-6795996_emoji-png-transparent-emojipng-images-pluspng-cool-emoji.png'} />}
