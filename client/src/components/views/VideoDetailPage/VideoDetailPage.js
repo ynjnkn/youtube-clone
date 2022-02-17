@@ -3,6 +3,8 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 import { Row, Col, List, Avatar } from 'antd';
 
+import SideVideo from './Sections/SideVideo';
+
 
 function VideoDetailPage() {
     const params = useParams();
@@ -50,7 +52,7 @@ function VideoDetailPage() {
                     </div>
                 </Col>
                 <Col lg={6} xs={24}>
-                    Side Videos
+                    <SideVideo />
                 </Col>
             </Row>
         )
